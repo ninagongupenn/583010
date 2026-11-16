@@ -1,0 +1,13 @@
+.env
+.env.*
+sk.txt
+*.pem
+student_credentials
+ssh_keys/
+**/broadcast/
+**/cache/
+**/out/
+**/lib/
+.codio
+.guides/
+.settings/
