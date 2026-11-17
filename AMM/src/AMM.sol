@@ -56,7 +56,7 @@ contract AMM is AccessControl{
 		uint256 qtyB;
 		uint256 swapAmt;
 
-		// Identify the input and output token reserves before the trade.
+		// Identify input output token reserves
 		address buyToken;
 		if (sellToken == tokenA) {
 			qtyA = ERC20(tokenA).balanceOf(address(this));
@@ -70,7 +70,7 @@ contract AMM is AccessControl{
 
 		require(qtyA > 0 && qtyB > 0, 'No liquidity');
 
-		// Constant-product pricing with a 3-basis-point (0.03%) fee.
+		// Constant product pricing with 3bps fee.
 		uint256 amountWithFee = sellAmount * (10000 - feebps);
 		swapAmt = (qtyB * amountWithFee) / (qtyA * 10000 + amountWithFee);
 		require(swapAmt > 0, 'Trade too small');
